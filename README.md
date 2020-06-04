@@ -1,2 +1,6 @@
-# 2020_oss
-start_2020_oss_project_git
+# 2020_Opensource Web Programming
+# 팀원 : 오준호 / 정채은 / 황운지
+
+06.04 : 진행상황
+
+![readme01](https://user-images.githubusercontent.com/50094387/83753176-c5b45a80-a6a4-11ea-9554-b282931c3a06.jpg)
