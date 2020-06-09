@@ -7,6 +7,7 @@
 	<!-- 부트스트랩 사용 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="navbar.css">
 	<link href="https://fonts.googleapis.com/css?family=Vollkorn|Roboto" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -17,141 +18,13 @@
 </head>
 <style>
 
-body {
-		font-family: 'Roboto', sans-serif;
-	}
-
-	#login {
-		display: block;
-	}
-
-	#logout {
-		display: none;
-	}
-	.button {
-		font-family: sans-serif;
-		background: #76B3FA;
-		border-radius: 100px;
-		color: #fff;
-		font-size: 20px;
-	}
-
-	.button:hover {
-		cursor: pointer;
-	}
-
-	.navbar-brand {
-		font-size: 30px;
-		letter-spacing: 3px;
-	}
-
-	.glyphicon {
-		font-size: 30px;
-		color: white;
-	}
-
-	.navbar-header {
-		float: none;
-	}
-	.jumbotron {
-		/*메인글자 부분 */
-		display: flex;
-		align-items: center;
-		margin: 0;
-		height: 100vh;
-		color: skyblue;
-		background-color: white;
-	}
-	.modal-fullscreen-menu .close {
-		/*닫기 버튼*/
-		color: white;
-		opacity: 1;
-		padding: 10px;
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: 1;
-		font-size: 5vh;
-	}
-	.modal-fullscreen-menu .modal-dialog {
-		margin: 0 auto;
-		width: 100%;
-		display: flex;
-		height: 100%;
-		align-items: center;
-		background-color: #0B0B61;
-	}
-	.modal-fullscreen-menu .modal-content {
-		background-color: transparent;
-		box-shadow: none;
-		border: none;
-	}
-	.modal-fullscreen-menu .list-group {
-		text-align: center;
-		margin: 0 auto;
-		width: 100%;
-	}
-	.modal-fullscreen-menu .list-group a {
-		/*메뉴 나오고 글자 부분*/
-		font-size: 200%;
-		font-family: 'Vollkorn', sans-serif;
-		font-weight: 200;
-
-		letter-spacing: 0.05em;
-		border: none;
-		transition: all 0.25s ease;
-		background-color: #0B0B61;
-		color: white;
-		padding: 7.5vh 0;
-		height: 5vh;
-		font-size: 5vh;
-		line-height: 0;
-	}
-	.modal-fullscreen-menu .list-group a:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: white;
-		z-index: -1;
-		opacity: 0;
-		transform: scale3d(0.7, 1, 1);
-		transition: transform 0.4s, opacity 0.4s;
-	}
-	.modal-fullscreen-menu .list-group a:hover {
-		/*메뉴 열리고 hover시 글자 색깔*/
-		color: white;
-	}
-	.modal-fullscreen-menu .list-group a:after {
-		content: "";
-		height: 3px;
-		width: 10px;
-		position: absolute;
-		transition: width 1s ease, background-color 1s ease;
-		;
-		top: 75%;
-		left: 40%;
-	}
-	.modal-fullscreen-menu .list-group a:hover:after {
-		width: 20%;
-		background-color: white;
-	}
-	.modal-fullscreen-menu .list-group a:hover:before {
-		transform: translate3d(0, 0, 0);
-		opacity: 1;
-	}
-	.modal-backdrop.in {
-		opacity: 1;
-	}
 </style>
 
 <body>
 	<nav class='navbar navbar-inverse navbar-fixed-top'>
 		<div class='container-fluid'>
 			<div class='navbar-header'>
-				<a class='navbar-brand' href='main.html'>PARATUS</a>
+				<a id='logo' class='navbar-brand' href='main.html'>PARATUS</a>
 				<button class='btn navbar-btn btn-link pull-right' data-target='#modalNavigation' data-toggle='modal' type='button'>
 					<span class='glyphicon glyphicon-menu-hamburger'></span>
 				</button>
