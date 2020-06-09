@@ -5,7 +5,7 @@ body {
 }
 
 #logo {
-  color: black;
+  color: white;
   font-size: 30px;
   letter-spacing: 5px;
 }
@@ -32,7 +32,7 @@ body {
 
 .glyphicon {
   font-size: 30px;
-  color: black;
+  color: white;
 }
 
 .glyphicon-remove{
@@ -149,7 +149,7 @@ body {
 }
 
 .container-fluid {
-  background-color: white;
+  background-color: black;
 }
 
 </style>
