@@ -44,7 +44,7 @@ body {
 }
 
 .jumbotron {
-  /*메인글자 부분 */
+  /*硫붿씤湲��옄 遺�遺� */
   display: flex;
   align-items: center;
   margin: 0;
@@ -54,7 +54,7 @@ body {
 }
 
 .modal-fullscreen-menu .close {
-  /*닫기 버튼*/
+  /*�떕湲� 踰꾪듉*/
   color: white;
   opacity: 1;
   padding: 10px;
@@ -88,7 +88,7 @@ body {
 }
 
 .modal-fullscreen-menu .list-group a {
-  /*메뉴 나오고 글자 부분*/
+  /*硫붾돱 �굹�삤怨� 湲��옄 遺�遺�*/
   font-size: 200%;
   font-family: 'Vollkorn', sans-serif;
   font-weight: 200;
@@ -96,7 +96,7 @@ body {
   border: none;
   transition: all 0.25s ease;
  background-image: linear-gradient( 30deg, #aaa 30%, rgba(170, 170, 170,0) 30.1%),
-    linear-gradient(-30deg, #aaa 30%, rgba(170, 170, 170,0) 30.1%)
+    linear-gradient(-30deg, #aaa 30%, rgba(170, 170, 170,0) 30.1%);
   color: black;
   padding: 7.5vh 0;
   height: 5vh;
@@ -119,7 +119,7 @@ body {
 }
 
 .modal-fullscreen-menu .list-group a:hover {
-  /*메뉴 열리고 hover시 글자 색깔*/
+  /*硫붾돱 �뿴由ш퀬 hover�떆 湲��옄 �깋源�*/
   color: black;
 }
 
