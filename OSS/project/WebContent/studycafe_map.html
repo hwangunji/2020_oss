@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Study Cafe Map</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBSmKBrc9Gx3Ha3fArmWFwDtgddzZH8BQo"></script>
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+
+		#map {
+			width: 100%;
+			height: 95%;
+		}
+	</style>
+</head>
+
+<body>
+  <div id="errormsg"></div>
+  <div id="latlng"></div>
+
+	<div id="map"></div>
+  <input type="button" value="내 위치 " onclick="Javascript:fnGetCurrentPosition();" />
+
+	<script type="text/javascript">
+
+		var locations = [
+			['비채스터디카페 ',36.632362, 127.457453 ],
+			['하우스터디 ', 36.637589, 127.469813],
+			['데일리스터디카페', 36.620964, 127.449085],
+			['어라운드스터디카페', 36.616786, 127.443227],
+			['시작 ', 36.636155, 127.459222],
+			['커피책방 ', 36.632880, 127.457018],
+			['오피스큐브 ',36.633541, 127.458920 ],
+      ['에이플 충북대 중문 스터디카페',36.632155, 127.460825 ],
+      ['에코플러스스터디카페 ',36.634115, 127.460110 ],
+      ['플랜에이스터디', 36.625154, 127.465837],
+
+
+		];
+
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 15,
+			center: new google.maps.LatLng(36.625571, 127.454377),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		});
+
+//현재위치 제외한 마커출력 배열안에 존재
+		var infowindow = new google.maps.InfoWindow();
+
+		var marker, i;
+		for (i = 0; i < locations.length; i++) {
+			marker = new google.maps.Marker({
+				id: i,
+				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+				map: map
+			});
+
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+					infowindow.setContent(locations[i][0]);
+					infowindow.open(map, marker);
+				}
+			})(marker, i));
+			if (marker) {
+				marker.addListener('click', function() {
+					map.setZoom(17);
+					map.setCenter(this.getPosition());
+				});
+			}
+		}
+
+  //현재위치 띄우기 함수
+  function fnGetCurrentPosition() {
+       if (navigator.geolocation)
+       {
+           $("#latlng").html("");
+           $("#errormsg").html("");
+           navigator.geolocation.getCurrentPosition (function (pos)
+           {
+               lat = pos.coords.latitude;
+               lng = pos.coords.longitude;
+
+               //$("#latlng").html("latitude : " + lat + "longitude : "+ lng);
+
+               var mapOptions = {
+                   zoom: 16,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP,
+                   center: new google.maps.LatLng(lat,lng)
+               };
+
+               map = new google.maps.Map(document.getElementById('map'),mapOptions);
+
+               //var myIcon = new google.maps.MarkerImage("http://google-maps-icons.googlecode.com/files/restaurant.png", null, null, null, new google.maps.Size(17,17));
+               var marker = new google.maps.Marker({
+                   position: new google.maps.LatLng(lat,lng),
+                   map: map
+               });
+               markers.push(marker);
+           },function(error)
+           {
+               switch(error.code)
+               {
+                   case 1:
+                       $("#errormsg").html("User denied the request for Geolocation.");
+                       break;
+                   case 2:
+                       $("#errormsg").html("Location information is unavailable.");
+                       break;
+                   case 3:
+                       $("#errormsg").html("The request to get user location timed out.");
+                       break;
+                   case 0:
+                       $("#errormsg").html("An unknown error occurred.");
+                       break;
+               }
+           });
+       }
+       else
+       {
+           $("#errormsg").html("Geolocation is not supported by this browser.");
+       }
+   }
+	</script>
+</body>
+
+</html>

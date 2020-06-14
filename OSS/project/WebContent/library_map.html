@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Library Map</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBSmKBrc9Gx3Ha3fArmWFwDtgddzZH8BQo"></script>
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+
+		#map {
+			width: 100%;
+			height: 95%;
+		}
+	</style>
+</head>
+
+<body>
+  <div id="errormsg"></div>
+  <div id="latlng"></div>
+
+	<div id="map"></div>
+  <input type="button" value="내 위치 " onclick="Javascript:fnGetCurrentPosition();" />
+
+	<script type="text/javascript">
+
+		var locations = [
+			['충북대학교 중앙도서관',36.629032, 127.456307],
+			['충북대학교 의학도서관',36.633546, 127.458914],
+			['충북대학교 과학기1도서관',36.626199, 127.456549],
+			['주흥덕도서관',36.634403, 127.432118],
+			['청주신율봉어린이도서관 ',36.631370, 127.446533],
+			['청주상당도서관 ',36.642796, 127.491275],
+			['청주시립도서관',36.612363, 127.505796],
+			['충청북도중앙도서관',36.632728, 127.477735],
+			['청주기적의도서관',36.617999, 127.483406],
+			['청주청원도서관 ',36.666179, 127.474918],
+			['청주서원도서관 ',36.608711, 127.488643],
+			['금빛도서관 ',36.630852, 127.511332],
+			['무지개도서관 ',36.639278, 127.439358],
+			['청주신율봉어린이도서관 ',36.631388, 127.446512],
+			['봉명작은도서관 ',36.639848, 127.459613],
+			['청주오창호수도서관 ',36.712877, 127.423886],
+			['청주대학교 중앙도서관',36.652201, 127.494606],
+			['글마루작은도서관 ',36.622479, 127.448014],
+			['청주성신학교 도서관',36.653150, 127.466531],
+			['청주옥산도서관',36.666102, 127.369338],
+			['청주열린도서관 ',36.656540, 127.490930],
+			['청주상공회의소자료실',36.637622, 127.490448],
+			['퀸덤도서관 ',36.612493, 127.462914],
+		];
+
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 14,
+			center: new google.maps.LatLng(36.625571, 127.454377),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		});
+
+//현재위치 제외한 마커출력 배열안에 존재
+		var infowindow = new google.maps.InfoWindow();
+
+		var marker, i;
+		for (i = 0; i < locations.length; i++) {
+			marker = new google.maps.Marker({
+				id: i,
+				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+				map: map
+			});
+
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+					infowindow.setContent(locations[i][0]);
+					infowindow.open(map, marker);
+				}
+			})(marker, i));
+			if (marker) {
+				marker.addListener('click', function() {
+					map.setZoom(17);
+					map.setCenter(this.getPosition());
+				});
+			}
+		}
+
+  //현재위치 띄우기 함수
+  function fnGetCurrentPosition() {
+       if (navigator.geolocation)
+       {
+           $("#latlng").html("");
+           $("#errormsg").html("");
+           navigator.geolocation.getCurrentPosition (function (pos)
+           {
+               lat = pos.coords.latitude;
+               lng = pos.coords.longitude;
+
+               //$("#latlng").html("latitude : " + lat + "longitude : "+ lng);
+
+               var mapOptions = {
+                   zoom: 16,
+                   mapTypeId: google.maps.MapTypeId.ROADMAP,
+                   center: new google.maps.LatLng(lat,lng)
+               };
+
+               map = new google.maps.Map(document.getElementById('map'),mapOptions);
+
+               //var myIcon = new google.maps.MarkerImage("http://google-maps-icons.googlecode.com/files/restaurant.png", null, null, null, new google.maps.Size(17,17));
+               var marker = new google.maps.Marker({
+                   position: new google.maps.LatLng(lat,lng),
+                   map: map
+               });
+               markers.push(marker);
+           },function(error)
+           {
+               switch(error.code)
+               {
+                   case 1:
+                       $("#errormsg").html("User denied the request for Geolocation.");
+                       break;
+                   case 2:
+                       $("#errormsg").html("Location information is unavailable.");
+                       break;
+                   case 3:
+                       $("#errormsg").html("The request to get user location timed out.");
+                       break;
+                   case 0:
+                       $("#errormsg").html("An unknown error occurred.");
+                       break;
+               }
+           });
+       }
+       else
+       {
+           $("#errormsg").html("Geolocation is not supported by this browser.");
+       }
+   }
+	</script>
+</body>
+
+</html>
