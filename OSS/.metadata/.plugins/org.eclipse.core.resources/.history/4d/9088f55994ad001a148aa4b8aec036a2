@@ -1,0 +1,13 @@
+<style>
+a.top {
+        position: fixed;
+        left: 50%;
+        bottom: 50px;
+        display: none;
+      }
+
+#top_img {
+	width: 10%;
+	height: 10%;
+}
+</style>
