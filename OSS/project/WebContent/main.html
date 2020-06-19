@@ -11,8 +11,7 @@
 <link rel="stylesheet" href="navbar.css">
 <link href="https://fonts.googleapis.com/css?family=Vollkorn|Roboto"
 	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Indie+Flower"
-	rel="stylesheet">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -21,64 +20,16 @@
 <meta name="google-signin-scope" content="profile email">
 <meta name="google-signin-client_id"
 	content="982848134909-gn3ilgjb7kkponn2a7db0toil2rb6d8m.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$(window).scroll(function() {
-			if ($(this).scrollTop() > 200) {
-				$('.top').fadeIn();
-			} else {
-				$('.top').fadeOut();
-			}
-		});
-		$('.top').click(function() {
-			$('html, body').animate({
-				scrollTop : 0
-			}, 400);
-			return false;
-		});
-	});
+<script src="https://apis.google.com/js/platform.js" async defer>
+</script>
+<script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+</script>
+<script type = "text/javascript">
+	 google.charts.load('current', {packages: ['corechart']});
 </script>
 </head>
-<style>
-a.top {
-	position: fixed;
-	left: 90%;
-	bottom: 10%;
-	display: none;
-	font-size: 30px;
-}
 
-.type-writer-box{
-	background-color:white;
-	display: flex;
-	justify-content: center;
-	color:black;
-	font-family: 'Indie Flower', cursive;
-	}
-.type-writer {
-	overflow:hidden;
-	font-family: 'Indie Flower', cursive;
-	border-right: .15em solid red;
-	white-space: nowrap;
-	letter-spacing: .15em;
-	animation:
-	typing 3.5s steps(30, end),
-	blink-caret .75s step-end infinite;
-}
-
-@keyframes typing{
-	from{width:0;}
-	to{width:50%;}
-}
-@keyframes blink-caret {
-	from{} to{border-color:transparent;}
-	50% {border-color: yellow;}
-}
-</style>
 <body>
-
 	<nav class='navbar navbar-inverse navbar-fixed-top'>
 		<div class='container-fluid'>
 			<div class='navbar-header'>
@@ -106,8 +57,8 @@ a.top {
 					<a class='list-group-item' href='main.html'>Home</a> <a
 						class='list-group-item' href='about.html'>About</a> <a
 						class='list-group-item' href='main.html'>Study Place</a> <a
-						class='list-group-item' href='scheduler.html'>Scheduler</a> <a
-						id='bbs' class='list-group-item' href='bbs.jsp'>Q&A</a>
+						class='list-group-item' href='scheduler.html'>Scheduler</a>
+						<a id='bbs' class='list-group-item' href='bbs.jsp'>Q&A</a>
 				</div>
 			</nav>
 		</div>
@@ -117,13 +68,9 @@ a.top {
 			you can not avoid</h1>
 	</section>
 
-	<!-- 타입라이터 -->
-	<div class="type-writer-box"><h1 class="type-writer">Welcome to our site!</h1></div>
 
 
-	<!-- 구글 차트 넣는 부분 -->
-
-
+	<!-- 구글 차트 -->
 	<section id="about" class="container-fluid">
 
 		<div class="row section-banner">
@@ -135,46 +82,76 @@ a.top {
 			</div>
 		</div>
 
-
 		<div class="row max">
-
-			<div class="col-sm-4 text-center">
-				<div class="desc">
-					<div class="icon-me">
-						<i class="fa fa-user"></i>
-					</div>
-					<p>A full stack developer with an eye for design, UX and UI
-						development and a strong desire to learn and create. I have had a
-						long career in the areas of educational software, multimedia
-						production and web development.</p>
+			<div class="desc" >
+						<h2 style="margin-left:410px;">Satisfaction with online lecture</h2>
+						<div style="margin-left:270px;">
+					<div id="donutchart" style="width: 900px; height: 500px; "></div>
 				</div>
-			</div>
+						<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    					<script type="text/javascript">
+      				google.charts.load("current", {packages:["corechart"]});
+      				google.charts.setOnLoadCallback(drawChart);
+      				function drawChart() {
+        			var data = google.visualization.arrayToDataTable([
+          		['Task', 'Attendance'],
+          		['I felt comfortable.',  21.1],
+							['I felt uncomfortable.',  78.9]
+        			]);
 
-			<div class="col-sm-4 text-center">
-				<div class="desc">
-					<div class="icon-me">
-						<i class="fa fa-mortar-board"></i>
-					</div>
-					<p>I firmly believe in life long learning and I'm constantly
-						exploring new ideas and technologies. MOOC's have enabled me to
-						update my skills and keep abreast of the latest trends in design
-						and coding.</p>
-				</div>
-			</div>
+        var options = {
 
-			<div class="col-sm-4 text-center">
-				<div class="desc">
-					<div class="icon-me">
-						<i class="fa fa-rocket"></i>
-					</div>
-					<p>My interests are wide with formal qualifications in Biology,
-						Astronomy and Education. I have designed and/or written software
-						for a large international diagnosics company, schools and
-						universities.</p>
-				</div>
-			</div>
+          pieHole: 0.6,
+        };
 
-		</div>
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+</div>
+</div>
+
+	<div class="desc" style="margin-left:450px;">
+		<h2 style="margin-left:200px;">Why Online Lectures Are Uncomfortable</h2>
+		 <div id="top_x_div" style="width: 600px; height: 350px; ">
+		 </div>
+		 <script type="text/javascript">
+		 google.charts.load('current', {'packages':['bar']});
+		 google.charts.setOnLoadCallback(drawStuff);
+
+		 function drawStuff() {
+			 var data = new google.visualization.arrayToDataTable([
+				 ['Reason', 'Percentage'],
+				 ["More alternative class assignments", 24.2],
+				 ["Diversified teaching methods and platforms", 20.2],
+				 ["Difficult to manage attendance", 15.7],
+				 ["Server connection is unstable", 14.2],
+				 ["the difficulty of hearing the professor's voice", 12.7]
+			 ]);
+
+			 var options = {
+				 title: 'Why Online Lectures Are Uncomfortable',
+				 width: 900,
+				 legend: { position: 'none' },
+
+				 bars: 'horizontal', // Required for Material Bar Charts.
+				 axes: {
+					 x: {
+						 0: { side: 'top', label: 'Percentage'} // Top x-axis.
+					 }
+				 },
+				 bar: { groupWidth: "90%" }
+			 };
+
+			 var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+			 chart.draw(data, options);
+		 };
+		 </script>
+		 <p style="margin-top:60px;">
+			 When asked about their satisfaction with online lectures, 78.9 percent of college students said they felt "uncomfortable."<br>
+			 Among the reasons for feeling uncomfortable, 24.2 percent said they had more replacements for "assignments."
+		   <br>So we developed a task management website for students' convenience..</p>
+		  </div>
 	</section>
 
 
@@ -192,21 +169,81 @@ a.top {
 			</div>
 		</div>
 
-
-		<div class="row max">
-			<div class="col-sm-offset-2 col-sm-8 text-center">
-				<div class="desc">
-					<p>These items are mainly exercises done whilst undertaking a
-						full stack development course with Free Code Camp. The details are
-						on the back of the cards with links to my CodePen and live sites.</p>
-				</div>
-			</div>
+		<div id="gallery">
+		  <button class="btn_slide" id="left"><span>&#9754;</span></button>
+		  <div class="slide center">
+		    <img src="slide1.png" width="800px" height="500px">
+		    </div>
+		  <div class="slide pos-right">
+		    <img src="slide2.png" width="800px" height="500px">
+		  </div>
+		  <div class="slide pos-right">
+		    <img src="slide3.png" width="800px" height="500px">
+		  </div>
+		  <button class="btn_slide" id="right" class="inactive"><span>&#9755;</span></button>
 		</div>
+		<script type="text/javascript">
+		class Slide {
+constructor() {
+	this.centeredSlide = 0;
+}
 
+set slideNum(num) {
+	this.centeredSlide = num;
+}
 
-		<!-- portfoloio projects cards -->
+get slideNum() {
+	return this.centeredSlide;
+}
+}
+
+let allPics = document.getElementsByClassName("slide");
+let centerPic = new Slide();
+let leftButton = document.getElementById("left");
+let rightButton = document.getElementById("right");
+
+leftButton.addEventListener("click", function() {
+for (let i=0; i < allPics.length; i++) {
+	if (i === centerPic.slideNum) {
+		allPics[i].classList.add("pos-left");
+		allPics[i].classList.remove("center");
+	} else if (i === centerPic.slideNum + 1) {
+		allPics[i].classList.add("center");
+		allPics[i].classList.remove("pos-right");
+	}
+};
+centerPic.slideNum = centerPic.slideNum + 1;
+if (centerPic.slideNum === allPics.length - 1) {
+	leftButton.classList.add("inactive");
+} else if (rightButton.classList.contains("inactive")) {
+	rightButton.classList.remove("inactive");
+}
+});
+
+rightButton.addEventListener("click", function() {
+for (let i=0; i < allPics.length; i++) {
+	if (i === centerPic.slideNum) {
+		allPics[i].classList.add("pos-right");
+		allPics[i].classList.remove("center");
+	} else if (i === centerPic.slideNum - 1) {
+		allPics[i].classList.add("center");
+		allPics[i].classList.remove("pos-left");
+	}
+};
+centerPic.slideNum = centerPic.slideNum - 1;
+if (centerPic.slideNum === 0) {
+	rightButton.classList.add("inactive");
+} else if (leftButton.classList.contains("inactive")) {
+	leftButton.classList.remove("inactive");
+}
+});
+
+		</script>
+
 		<div class="row" id="theProjects"></div>
 	</section>
+
+
 	<!-- 유튜브 비디오 -->
 	<section id="about" class="container-fluid">
 
@@ -221,46 +258,13 @@ a.top {
 
 
 		<div class="row max">
+			<video src="tips_for_task.mp4" preload="auto"autoplay poster="posterimage.jpg" controls width="700" height="500" style="margin-left:300px; margin-bottom:100px;">
 
-			<div class="col-sm-4 text-center">
-				<div class="desc">
-					<div class="icon-me">
-						<i class="fa fa-user"></i>
-					</div>
-					<p>A full stack developer with an eye for design, UX and UI
-						development and a strong desire to learn and create. I have had a
-						long career in the areas of educational software, multimedia
-						production and web development.</p>
-				</div>
-			</div>
+			</video>
 
-			<div class="col-sm-4 text-center">
-				<div class="desc">
-					<div class="icon-me">
-						<i class="fa fa-mortar-board"></i>
-					</div>
-					<p>I firmly believe in life long learning and I'm constantly
-						exploring new ideas and technologies. MOOC's have enabled me to
-						update my skills and keep abreast of the latest trends in design
-						and coding.</p>
-				</div>
-			</div>
 
-			<div class="col-sm-4 text-center">
-				<div class="desc">
-					<div class="icon-me">
-						<i class="fa fa-rocket"></i>
-					</div>
-					<p>My interests are wide with formal qualifications in Biology,
-						Astronomy and Education. I have designed and/or written software
-						for a large international diagnosics company, schools and
-						universities.</p>
-				</div>
-			</div>
 
-		</div>
 	</section>
-	<a href="#" class="top">Top</a>
 
 	<!-- fixed footer for social links -->
 	<footer id='social-footer'>
@@ -317,24 +321,26 @@ a.top {
 
 		</ul>
 
-		<div class="text-center copyright">ⓒPARATUS</div>
+
+
+		<div class="text-center copyright">	ⓒPARATUS</div>
+
+
 	</footer>
 </body>
 <script>
 	document.getElementById('bbs').style.display = "none";
-	
 	function onSignIn(googleUser) { //Login function
 		// Useful data for your client-side scripts:
 		var profile = googleUser.getBasicProfile();
-		var userName = profile.getGivenName();
-		
-		document.getElementById('login').style.display = "block";
+		console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+		console.log('Full Name: ' + profile.getName());
+		console.log("Email: " + profile.getEmail());
+		// The ID token you need to pass to your backend:
+		var id_token = googleUser.getAuthResponse().id_token;
 		document.getElementById('login').style.display = "none";
 		document.getElementById('logout').style.display = "block";
-		
-		document.getElementsByClassName('type-writer-box')[0].style.display = "flex";
-		document.getElementsByClassName('type-writer')[0].innerHTML = "Welcome to our site!" + " "+ userName;
-		
+		var userName = profile.getName();
 		document.getElementById('bbs').style.display = "block";
 	}
 
@@ -346,7 +352,6 @@ a.top {
 			document.getElementById('login').style.display = "block";
 			document.getElementById('logout').style.display = "none";
 			document.getElementById('bbs').style.display = "none";
-			document.getElementsByClassName('type-writer')[0].innerHTML = "Welcome to our site!";
 		});
 	}
 </script>
