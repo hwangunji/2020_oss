@@ -71,8 +71,7 @@ body {
   display: flex;
   height: 100%;
   align-items: center;
-  background-image: linear-gradient( 30deg, #aaa 30%, rgba(170, 170, 170,0) 30.1%),
-    linear-gradient(-30deg, #aaa 30%, rgba(170, 170, 170,0) 30.1%)
+  background-image: -webkit-linear-gradient(right, #FC7864, #FDA366);
 }
 
 .modal-fullscreen-menu .modal-content {
@@ -95,9 +94,8 @@ body {
   letter-spacing: 0.05em;
   border: none;
   transition: all 0.25s ease;
- background-image: linear-gradient( 30deg, #aaa 30%, rgba(170, 170, 170,0) 30.1%),
-    linear-gradient(-30deg, #aaa 30%, rgba(170, 170, 170,0) 30.1%);
-  color: black;
+ background-image: -webkit-linear-gradient(right, #FC7864, #FDA366);
+  color: white;
   padding: 7.5vh 0;
   height: 5vh;
   font-size: 5vh;
